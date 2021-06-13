@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grid Game</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Monoton&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="home.css">
+        <script src="home.js"></script>
+        <audio id="clickaudio">
+            <source src="mixkit-arcade-game-jump-coin-216.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="loseaudio">
+            <source src="mixkit-player-losing-or-failing-2042.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="wonaudio">
+            <source src="mixkit-video-game-win-2016.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="erroraudio">
+            <source src="printerbeep-403-sound-effect-20834351.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="endaudio">
+            <source src="mixkit-bell-tick-tock-timer-1046.mp3" type="audio/mpeg">
+        </audio>
+    </head>
+    <body>
+        <div id="notice_background">
+            <form id="notice">
+                <label class="notice_text">You won the Game</label><br>
+                <label class="score">Score: <span id="score1" style="background-color: transparent;"></span></label><br>
+                <input type="text" id="playername" name="Playername" placeholder="Enter Your Name" value="" autocomplete="off" required><br>
+                <button class="reset1" onclick="storage(document.getElementById('playername').value,0)">Save & Retry</button>
+            </form>
+            <div id="notice1">
+                <label class="notice_text">You lost the Game</label><br><br>
+                <label class="score">Time's Up</label><br>
+                <button class="reset1" onclick="restart()">Retry</button>
+            </div>
+        </div>
+        <div class="board">
+            <label class="title1">G<span style="color: red;">R</span>I<span style="color: blue;">D</span> G<span style="color: orange;">A</span><span style="color: yellowgreen;">M</span>E</label>
+            <div class="board1">
+                <label class="moves">moves : <span id="moves1">0</span></label>   
+                <label class="time">Time Left : <span id="time1">03:00</span></label>
+            </div>
+        </div>
+        <div class="mode">
+            <p>Mode of Game:</p>
+            <label class="Easy" id="Easy" onclick="modefunction('Easy')">Easy</label><br>
+            <label class="Normal" id="Normal" onclick="modefunction('Normal')">Normal</label><br>
+            <button class="reset" id="reset" onclick="Change()">Start</button><br><br>
+            <label>Highest Score</label><br>
+            <label id="highest" style="margin-left: 5%;"></label>
+        </div>
+        <section id="easymode">
+            <section class="question">
+                <div class="grid-container">
+                    <div class="grid-item" id="q1"></div>
+                    <div class="grid-item" id="q2"></div>
+                    <div class="grid-item" id="q3"></div>
+                    <div class="grid-item" id="q4"></div>
+                    <div class="grid-item" id="q5"></div>
+                    <div class="grid-item" id="q6"></div>
+                    <div class="grid-item" id="q7"></div>
+                    <div class="grid-item" id="q8"></div>
+                    <div class="grid-item" id="q9"></div>
+                </div>        
+            </section>
+            <section class="answer">
+                <div class="grid-container1">
+                    <div class="grid-item" id="0" onclick="shift(0)"></div>
+                    <div class="grid-item" id="1" onclick="shift(1)"></div>
+                    <div class="grid-item" id="2" onclick="shift(2)"></div>
+                    <div class="grid-item" id="3" onclick="shift(3)"></div>
+                    <div class="grid-item" id="4" onclick="shift(4)"></div>
+                    <div class="grid-item" id="5" onclick="shift(5)"></div>
+                    <div class="grid-item" id="6" onclick="shift(6)"></div>
+                    <div class="grid-item" id="7" onclick="shift(7)"></div>
+                    <div class="grid-item" id="8" onclick="shift(8)"></div>
+                    <div class="grid-item" id="9" onclick="shift(9)"></div>
+                    <div class="grid-item" id="10" onclick="shift(10)"></div>
+                    <div class="grid-item" id="11" onclick="shift(11)"></div>
+                    <div class="grid-item" id="12" onclick="shift(12)"></div>
+                    <div class="grid-item" id="13" onclick="shift(13)"></div>
+                    <div class="grid-item" id="14" onclick="shift(14)"></div>
+                    <div class="grid-item" id="15" onclick="shift(15)"></div>
+                    <div class="grid-item" id="16" onclick="shift(16)"></div>
+                    <div class="grid-item" id="17" onclick="shift(17)"></div>
+                    <div class="grid-item" id="18" onclick="shift(18)"></div>
+                    <div class="grid-item" id="19" onclick="shift(19)"></div>
+                    <div class="grid-item" id="20" onclick="shift(20)"></div>
+                    <div class="grid-item" id="21" onclick="shift(21)"></div>
+                    <div class="grid-item" id="22" onclick="shift(22)"></div>
+                    <div class="grid-item" id="23" onclick="shift(23)"></div>
+                    <div class="grid-item" id="24" onclick="shift(24)"></div>
+                </div>
+            </section>
+        </section>
+        <section id="normalmode">
+            <section class="question">
+                <div class="grid-container" style="grid-template-columns: auto auto auto auto;">
+                    <div class="grid-item" id="nq1"></div>
+                    <div class="grid-item" id="nq2"></div>
+                    <div class="grid-item" id="nq3"></div>
+                    <div class="grid-item" id="nq4"></div>
+                    <div class="grid-item" id="nq5"></div>
+                    <div class="grid-item" id="nq6"></div>
+                    <div class="grid-item" id="nq7"></div>
+                    <div class="grid-item" id="nq8"></div>
+                    <div class="grid-item" id="nq9"></div>
+                    <div class="grid-item" id="nq10"></div>
+                    <div class="grid-item" id="nq11"></div>
+                    <div class="grid-item" id="nq12"></div>
+                    <div class="grid-item" id="nq13"></div>
+                    <div class="grid-item" id="nq14"></div>
+                    <div class="grid-item" id="nq15"></div>
+                    <div class="grid-item" id="nq16"></div>
+                </div>        
+            </section>
+            <section class="answer">
+                <div class="grid-container1" style="grid-template-columns: auto auto auto auto auto auto;">
+                    <div class="grid-item" id="n0" onclick="shift1(0)"></div>
+                    <div class="grid-item" id="n1" onclick="shift1(1)"></div>
+                    <div class="grid-item" id="n2" onclick="shift1(2)"></div>
+                    <div class="grid-item" id="n3" onclick="shift1(3)"></div>
+                    <div class="grid-item" id="n4" onclick="shift1(4)"></div>
+                    <div class="grid-item" id="n5" onclick="shift1(5)"></div>
+                    <div class="grid-item" id="n6" onclick="shift1(6)"></div>
+                    <div class="grid-item" id="n7" onclick="shift1(7)"></div>
+                    <div class="grid-item" id="n8" onclick="shift1(8)"></div>
+                    <div class="grid-item" id="n9" onclick="shift1(9)"></div>
+                    <div class="grid-item" id="n10" onclick="shift1(10)"></div>
+                    <div class="grid-item" id="n11" onclick="shift1(11)"></div>
+                    <div class="grid-item" id="n12" onclick="shift1(12)"></div>
+                    <div class="grid-item" id="n13" onclick="shift1(13)"></div>
+                    <div class="grid-item" id="n14" onclick="shift1(14)"></div>
+                    <div class="grid-item" id="n15" onclick="shift1(15)"></div>
+                    <div class="grid-item" id="n16" onclick="shift1(16)"></div>
+                    <div class="grid-item" id="n17" onclick="shift1(17)"></div>
+                    <div class="grid-item" id="n18" onclick="shift1(18)"></div>
+                    <div class="grid-item" id="n19" onclick="shift1(19)"></div>
+                    <div class="grid-item" id="n20" onclick="shift1(20)"></div>
+                    <div class="grid-item" id="n21" onclick="shift1(21)"></div>
+                    <div class="grid-item" id="n22" onclick="shift1(22)"></div>
+                    <div class="grid-item" id="n23" onclick="shift1(23)"></div>
+                    <div class="grid-item" id="n24" onclick="shift1(24)"></div>
+                    <div class="grid-item" id="n25" onclick="shift1(25)"></div>
+                    <div class="grid-item" id="n26" onclick="shift1(26)"></div>
+                    <div class="grid-item" id="n27" onclick="shift1(27)"></div>
+                    <div class="grid-item" id="n28" onclick="shift1(28)"></div>
+                    <div class="grid-item" id="n29" onclick="shift1(29)"></div>
+                    <div class="grid-item" id="n30" onclick="shift1(30)"></div>
+                    <div class="grid-item" id="n31" onclick="shift1(31)"></div>
+                    <div class="grid-item" id="n32" onclick="shift1(32)"></div>
+                    <div class="grid-item" id="n33" onclick="shift1(33)"></div>
+                    <div class="grid-item" id="n34" onclick="shift1(34)"></div>
+                    <div class="grid-item" id="n35" onclick="shift1(35)"></div>
+                </div>
+            </section>
+        </section>
+    </body>
+</html>

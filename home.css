@@ -1,0 +1,539 @@
+*{
+    margin: 0px;
+}
+body{
+    background-image: url('https://i.pinimg.com/originals/5f/08/58/5f085809f2b711643e4eb4974cc03c0e.gif');
+    background-size: cover;
+}
+.question{
+    padding-top: 2%;
+    width: 100%;
+    height: 250px;
+    z-index: 3;
+}
+#notice_background{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9;
+}
+#notice{
+    display: none;
+    position: absolute;
+    z-index: 8;
+    width: 30%;
+    height: 175px;
+    background-image: url('bg-1.jpg');
+    background-size: cover;
+    border: 2px solid white;
+    margin-left: 32.75%;
+    margin-top: 12.5%;
+    padding-top: 2%;
+    text-align: center;
+    border-radius: 5px;
+}
+#notice1{
+    display: none;
+    position: absolute;
+    z-index: 8;
+    width: 30%;
+    height: 150px;
+    background-image: url('bg-2.jpg');
+    background-size: cover;
+    border: 2px solid white;
+    margin-left: 32.75%;
+    margin-top: 15%;
+    padding-top: 2%;
+    text-align: center;
+    border-radius: 5px;
+}
+.notice_text{
+    font-size: 25px;
+    color: aliceblue;
+    background-color: transparent;
+}
+.score{
+    font-size: 35px;
+    color: aliceblue;
+    background-color: transparent;
+}
+input[type="text"]{
+    background-color: white;
+    width: 50%;
+    height: 20%;
+    padding-left: 2%;
+    font-size: 15px;
+    margin-top: 2%;
+}
+.board{
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    font-size: 30px;
+    color: whitesmoke;
+    font-family: 'Bangers', cursive;
+    padding-top: 1.5%;
+    z-index: 2;
+}
+.board1{
+    width: 20%;
+    background-color: rgba(122, 62, 172, 0.9);
+    background-size: contain;
+    padding: 1%;
+    margin-left: 5%;
+    border-radius: 5px;
+    border: 2px solid skyblue;
+}
+.title1{
+    background-color: rgba(122, 62, 172, 0.9);
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 5px;
+    border: 2px solid skyblue;
+    font-size: 70px;
+    font-family: 'Monoton', cursive;
+    margin-left: 61%;
+}
+.moves{
+    display: block;
+    margin-left: 5%;
+}
+.time{
+    margin-left: 5%;
+}
+button[class="reset"]{
+    font-size: 30px;
+    background-color: whitesmoke;
+    margin-top: 5%;
+    margin-left: 10%;
+    padding: .5%;
+    width: 50%;
+    font-family: 'Bangers', cursive;
+}
+button[class="reset1"]{
+    margin-left: 0px;
+    background-color: whitesmoke;
+    margin-top: 3%;
+    font-size: 20px;
+    width: 30%;
+    height: 20%;
+    font-family: 'Bangers', cursive;
+}
+label[id="Easy"]{
+    color: red;
+    margin-left: 15%;
+}
+label[id="Easy"]:hover{
+    text-shadow: 2px 2px 2px lightslategrey;
+    font-size: 40px;
+    margin-left: 12.5%;
+}
+label[id="Normal"]{
+    margin-left: 10%;
+}
+label[id="Normal"]:hover{
+    text-shadow: 2px 2px 2px lightslategrey;
+    font-size: 40px;
+    margin-left: 7.5%;
+}
+#easymode{ 
+    z-index: 6;
+}
+#normalmode{
+    display: none;
+    z-index: 6;
+}
+.mode{
+    background-color: transparent;
+    background-color: rgba(122, 62, 172, 0.9);
+    padding: 3%;
+    padding-left: 5%;
+    border-radius: 5px;
+    border: 2px solid skyblue;
+    position: absolute;
+    margin-top: 20%;
+    margin-left: 70%;
+    width: 15%;
+    font-size: 30px;
+    color: whitesmoke;
+    font-family: 'Bangers', cursive;
+    z-index: 2;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: darkgray;
+    padding: 10px;
+    width: 22.5%;
+    height: 80%;
+    margin-left: 35.5%;
+    border-radius: 5px;
+  }
+.grid-item {
+    background-color: lightslategrey;
+    margin: 2px;
+    padding: 15px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 5px;
+  }
+.grid-container1 {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    background-color: darkgray;
+    padding: 10px;
+    width: 30%;
+    height: 50%;
+    margin-left: 32%;
+    border-radius: 5px;
+  }
+@media  screen and (max-width: 1240px) {
+    .board{
+        padding-top: 0%;
+        margin-left: 0%;
+        width: 100%;
+        font-size: 40px;
+    }
+    .title1{
+        display: block;
+        width: fit-content;
+        font-size: 80px;
+        margin-left: 25%;
+    }
+    .board1{
+        height: fit-content;
+        margin-top: 40%;
+        margin-left: 10%;
+        width: 80%;
+    }
+    .moves{
+        display: inline-flex;
+        margin-left: 27.5%;
+    }
+    .time{
+        display: inline-flex;
+        margin-left: 10%;
+    }
+    .mode{
+        margin-top: 15%;
+        display: inline;
+        width: 30%;
+        margin-left: 60%;
+        font-size: 40px;
+    }
+    button[class="reset"]{
+        font-size: 30px;
+        width: 35%;
+        margin-left: 13%;
+    }
+    label[id="Easy"]{
+        color: red;
+        margin-left: 20%;
+    }
+    label[id="Easy"]:hover{
+        text-shadow: 2px 2px 2px lightslategrey;
+        font-size: 40px;
+        margin-left: 16%;
+    }
+    label[id="Normal"]{
+        margin-left: 12.5%;
+    }
+    label[id="Normal"]:hover{
+        text-shadow: 2px 2px 2px lightslategrey;
+        font-size: 40px;
+        margin-left: 7.5%;
+    }
+    .grid-container{
+        width: 275px;
+        height: 275px;
+        margin-left: 12.5%;
+        margin-top: 15%;
+    }
+    .grid-container1{
+        width: 450px;
+        height: 450px;
+        margin-left: 27.5%;
+        margin-top: 35%;
+        margin-bottom: 5%;
+    }
+    #notice{
+        margin-left: 30%;
+        width: 40%;
+        height: 175px;
+        margin-top: 50%;
+    }
+    #notice1{
+        padding-top: 5%;
+        margin-left: 27.5%;
+        width: 45%;
+        height: 175px;
+        margin-top: 50%;
+    }
+    .notice_text{
+        font-size: 25px;
+    }
+    .score{
+        font-size: 35px;
+    }
+    .input[type="type"]{
+        width: 80%;
+    }
+    button[class="reset1"]{
+        width: 40%;
+        margin-top: 5%;
+    }
+}
+@media  screen and (max-width: 900px) {
+    .board{
+        padding-top: 0%;
+        margin-left: 0%;
+        width: 100%;
+        font-size: 30px;
+    }
+    .title1{
+        display: block;
+        font-size: 60px;
+        margin-left: 25%;
+    }
+    .board1{
+        height: 10%;
+        margin-top: 51%;
+        margin-left: 10%;
+        width: 80%;
+    }
+    .moves{
+        display: inline-flex;
+        margin-left: 27.5%;
+    }
+    .time{
+        display: inline-flex;
+        margin-left: 10%;
+    }
+    .mode{
+        margin-top: 17%;
+        display: inline;
+        width: 30%;
+        margin-left: 65%;
+        font-size: 30px;
+    }
+    button[class="reset"]{
+        font-size: 30px;
+        width: 35%;
+        margin-left: 13%;
+    }
+    label[id="Easy"]{
+        color: red;
+        margin-left: 20%;
+    }
+    label[id="Easy"]:hover{
+        text-shadow: 2px 2px 2px lightslategrey;
+        font-size: 40px;
+        margin-left: 16%;
+    }
+    label[id="Normal"]{
+        margin-left: 12.5%;
+    }
+    label[id="Normal"]:hover{
+        text-shadow: 2px 2px 2px lightslategrey;
+        font-size: 40px;
+        margin-left: 7.5%;
+    }
+    .grid-container{
+        width: 275px;
+        height: 275px;
+        margin-left: 12.5%;
+        margin-top: 15%;
+    }
+    .grid-container1{
+        width: 432px;
+        height: 432px;
+        margin-left: 20%;
+        margin-top: 35%;
+    }
+}
+@media  screen and (max-width: 500px) {
+    .board{
+        margin-left: 0%;
+        width: 100%;
+        font-size: 20px;
+    }
+    .title1{
+        font-size: 35px;
+        margin-left: 25%;
+    }
+    .board1{
+        height: 10%;
+        margin-top: 55%;
+        margin-left: 10%;
+        width: 80%;
+    }
+    .moves{
+        display: inline-flex;
+        margin-left: 25%;
+    }
+    .time{
+        display: inline-flex;
+        margin-left: 10%;
+    }
+    .mode{
+        margin-top: 17%;
+        display: inline;
+        width: 30%;
+        margin-left: 65%;
+        font-size: 20px;
+    }
+    button[class="reset"]{
+        font-size: 20px;
+        width: 50%;
+        margin-left: 15%;
+    }
+    label[id="Easy"]{
+        color: red;
+        margin-left: 25%;
+    }
+    label[id="Easy"]:hover{
+        text-shadow: 2px 2px 2px lightslategrey;
+        font-size: 30px;
+        margin-left: 20%;
+    }
+    label[id="Normal"]{
+        margin-left: 15%;
+    }
+    label[id="Normal"]:hover{
+        text-shadow: 2px 2px 2px lightslategrey;
+        font-size: 30px;
+        margin-left: 5%;
+    }
+    .grid-container{
+        width: 175px;
+        height: 175px;
+        margin-left: 15%;
+        margin-top: 12.5%;
+    }
+    .grid-container1{
+        width: 332px;
+        height: 332px;
+        margin-left: 7.5%;
+        margin-top: 15%;
+    }
+    #notice{
+        margin-left: 10%;
+        width: 80%;
+        height: 150px;
+        margin-top: 50%;
+    }
+    #notice1{
+        padding-top: 5%;
+        margin-left: 10%;
+        width: 80%;
+        height: 150px;
+        margin-top: 50%;
+    }
+    .notice_text{
+        font-size: 20px;
+    }
+    .score{
+        font-size: 30px;
+    }
+    .input[type="type"]{
+        width: 80%;
+    }
+    button[class="reset1"]{
+        width: 40%;
+        margin-top: 5%;
+    }
+}
+@media  screen and (max-width: 400px) {
+    .board{
+        margin-left: 0%;
+        width: 100%;
+        font-size: 20px;
+    }
+    .title1{
+        width: 46%;
+        font-size: 25px;
+        margin-left: 30%;
+    }
+    .moves{
+        display: inline-flex;
+        margin-left: 15%;
+    }
+    .time{
+        display: inline-flex;
+        margin-left: 10%;
+    }
+    .mode{
+        margin-top: 15%;
+        display: inline;
+        width: 30%;
+        margin-left: 65%;
+        font-size: 20px;
+    }
+    .board1{
+        margin-top: 57%;
+        margin-left: 12.5%;
+        width: 80%;
+    }
+    button[class="reset"]{
+        font-size: 20px;
+        width: 50%;
+        margin-left: 15%;
+    }
+    label[id="Easy"]{
+        color: red;
+        margin-left: 25%;
+    }
+    label[id="Easy"]:hover{
+        text-shadow: 2px 2px 2px lightslategrey;
+        font-size: 30px;
+        margin-left: 20%;
+    }
+    label[id="Normal"]{
+        margin-left: 15%;
+    }
+    label[id="Normal"]:hover{
+        text-shadow: 2px 2px 2px lightslategrey;
+        font-size: 30px;
+        margin-left: 5%;
+    }
+    .grid-container{
+        width: 150px;
+        height: 150px;
+        margin-left: 10%;
+        margin-top: 15%;
+    }
+    .grid-container1{
+        width: 300px;
+        height: 300px;
+        margin-left: 10%;
+        margin-top: 10%;
+    }
+    #notice{
+        margin-left: 10%;
+        width: 80%;
+        height: 150px;
+        margin-top: 45%;
+    }
+    #notice1{
+        padding-top: 5%;
+        margin-left: 10%;
+        width: 80%;
+        height: 150px;
+        margin-top: 50%;
+    }
+    .notice_text{
+        font-size: 20px;
+    }
+    .score{
+        font-size: 30px;
+    }
+    .input[type="type"]{
+        width: 80%;
+    }
+    button[class="reset1"]{
+        width: 40%;
+        margin-top: 5%;
+    }
+}
