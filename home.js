@@ -258,8 +258,13 @@ function storage(txt,z){
     Score: score,
   }
   p = JSON.parse(localStorage.getItem('user'));
-  if(p.Score<=person.Score || person.Score==undefined){
-    localStorage.setItem('user',JSON.stringify(person))
+  if(p!=null){
+    if(p.Score<=person.Score){
+        localStorage.setItem('user',JSON.stringify(person))
+      }
+  }
+  else{
+      localStorage.setItem('user',JSON.stringify(person))
   }
   if(z==0){
     restart()
@@ -270,5 +275,10 @@ function storage(txt,z){
 }
 window.onload=function() {
   p = JSON.parse(localStorage.getItem('user'));
-  document.getElementById("highest").innerHTML= p.name + "  " + p.Score  ;
+  if(p!=null){
+      document.getElementById("highest").innerHTML= p.name + "  " + p.Score  ;
+  }
+  else{
+      document.getElementById("highest").innerHTML="No high score";
+  }
 }
